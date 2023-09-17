@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().anyRequest().authenticated().and()
 				.formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/home", true).permitAll())
-				.logout(logout -> logout.logoutUrl("/logout"));
+				.logout(logout -> logout.logoutUrl("/logout")).csrf().disable();
 	}
 
 	@Override
